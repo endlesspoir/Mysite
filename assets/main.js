@@ -131,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('touchmove', event => {
     if (!tracking) return;
-    if (event.target.closest('.slide-inner.scene-page')) return;
     const deltaX = Math.abs(event.touches[0].clientX - startX);
     const deltaY = Math.abs(event.touches[0].clientY - startY);
     if (Math.max(deltaX,deltaY)>8) event.preventDefault();
@@ -139,11 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('touchend', event => {
     if (!tracking) return;
-    const isSceneTouch = Boolean(event.target.closest('.slide-inner.scene-page'));
     const deltaX = event.changedTouches[0].clientX - startX;
     const deltaY = event.changedTouches[0].clientY - startY;
     tracking = false;
-    if (isSceneTouch) return;
+    if (Math.max(Math.abs(deltaX),Math.abs(deltaY)) < 52) return;
     if (Math.max(Math.abs(deltaX),Math.abs(deltaY)) < 52) return;
     goToSlide(currentIndex + (Math.abs(deltaX)>Math.abs(deltaY) ? (deltaX<0 ? 1:-1) : (deltaY<0 ? 1:-1)));
   }, { passive:true });

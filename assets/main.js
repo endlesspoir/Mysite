@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const isMobileLayout = () => window.matchMedia('(max-width: 760px)').matches;
+  const isSceneSlide = slide => !slide.classList.contains('seo-content');
 
   if (isMobileLayout()) {
     document.querySelectorAll('.mobile-map [data-target]').forEach(control => {
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-action]').forEach(control => {
       control.addEventListener('click', event => {
         event.preventDefault();
-        const slides = [...document.querySelectorAll('.slide')];
+        const slides = [...document.querySelectorAll('.slide')].filter(isSceneSlide);
         const activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
         const nextIndex = control.dataset.action === 'next' ? activeIndex + 1 : activeIndex - 1;
         const target = slides[nextIndex];
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const deck = document.getElementById('deck');
-  const slides = [...deck.querySelectorAll('.slide')];
+  const slides = [...deck.querySelectorAll('.slide')].filter(isSceneSlide);
   const railButtons = [...document.querySelectorAll('.chapter-rail button')];
   const mapButtons = [...document.querySelectorAll('.mobile-map [data-target], .mobile-map [data-action]')];
   const langToggle = document.getElementById('langToggle');
@@ -186,3 +187,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   syncNavigation();
 });
+
+(function initMobileSceneGestures() {
+  const isMobileLayout = () => window.matchMedia('(max-width: 760px)').matches;
+  const sceneSlides = [...document.querySelectorAll('.slide')].filter(slide => !slide.classList.contains('seo-content'));
+
+  if (!sceneSlides.length || !isMobileLayout()) return;
+
+  let startX = 0;
+  let startY = 0;
+  let tracking = false;
+  let locked = false;
+
+  const goToSlide = index => {
+    if (locked) return;
+    const nextIndex = Math.min(slides.length - 1, Math.max(0, index));
+    const current = sceneSlides.findIndex(slide => slide.classList.contains('is-active'));
+    if (nextIndex === current) return;
+
+    locked = true;
+    sceneSlides[current].classList.remove('is-active');
+    sceneSlides[nextIndex].classList.add('is-active');
+    sceneSlides.forEach((slide, slideIndex) => slide.setAttribute('aria-hidden', String(slideIndex !== nextIndex)));
+    history.replaceState(null, '', `#${sceneSlides[nextIndex].id}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => { locked = false; }, 320);
+  };
+
+  window.addEventListener('touchstart', event => {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    tracking = true;
+  }, { passive: true });
+
+  window.addEventListener('touchmove', event => {
+    const deltaX = Math.abs(event.touches[0].clientX - startX);
+    const deltaY = Math.abs(event.touches[0].clientY - startY);
+
+    if (deltaX > deltaY && deltaX > 10) event.preventDefault();
+  }, { passive: false });
+
+  window.addEventListener('touchend', () => {
+    if (!tracking) return;
+    tracking = false;
+
+    const deltaX = event.changedTouches[0].clientX - startX;
+    const deltaY = event.changedTouches[0].clientY - startY;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+
+    if (absX < 48 || absY >= absX * 1.2) return;
+    const current = Math.max(0, sceneSlides.findIndex(slide => slide.classList.contains('is-active')));
+    goToSlide(current + (deltaX < 0 ? 1 : -1));
+  }, { passive: true });
+})();

@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!tracking) return;
     const deltaX = Math.abs(event.touches[0].clientX - startX);
     const deltaY = Math.abs(event.touches[0].clientY - startY);
-    if (Math.max(deltaX,deltaY)>8) event.preventDefault();
+    if (deltaX > deltaY + 8) event.preventDefault();
   }, { passive:false });
 
   window.addEventListener('touchend', event => {
@@ -141,9 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const deltaX = event.changedTouches[0].clientX - startX;
     const deltaY = event.changedTouches[0].clientY - startY;
     tracking = false;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
     if (Math.max(Math.abs(deltaX),Math.abs(deltaY)) < 52) return;
-    if (Math.max(Math.abs(deltaX),Math.abs(deltaY)) < 52) return;
-    goToSlide(currentIndex + (Math.abs(deltaX)>Math.abs(deltaY) ? (deltaX<0 ? 1:-1) : (deltaY<0 ? 1:-1)));
+    if (absX < 56 || absX <= absY * 1.35) return;
+    goToSlide(currentIndex + (deltaX < 0 ? 1 : -1));
   }, { passive:true });
 
   const hashId=location.hash.slice(1);

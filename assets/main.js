@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tracking = false;
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
-    if (Math.max(Math.abs(deltaX),Math.abs(deltaY)) < 52) return;
+    if (Math.max(absX,absY) < 52) return;
     if (absX < 56 || absX <= absY * 1.35) return;
     goToSlide(currentIndex + (deltaX < 0 ? 1 : -1));
   }, { passive:true });

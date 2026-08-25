@@ -88,13 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!force && (nextIndex < 0 || nextIndex === currentIndex || isAnimating)) return;
 
     isAnimating = true;
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const nextSlide = slides[nextIndex];
+    // Paint the new scene color first so the old slide fade doesn't flash the gradient.
+    document.body.className = `theme-${nextSlide.id}`;
     slides[currentIndex].classList.remove('is-active');
-    slides[nextIndex].classList.add('is-active');
+    nextSlide.classList.add('is-active');
     currentIndex = nextIndex;
-    document.body.className = `theme-${slides[nextIndex].id}`;
+    window.scrollTo({ top: 0, behavior: 'instant' });
     syncNavigation();
-    if (updateHash) history.replaceState(null, '', `#${slides[nextIndex].id}`);
+    if (updateHash) history.replaceState(null, '', `#${nextSlide.id}`);
 
     setTimeout(() => { isAnimating = false; }, 310);
   };

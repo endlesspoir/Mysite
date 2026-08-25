@@ -2,33 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMobileLayout = () => window.matchMedia('(max-width: 760px)').matches;
   const isSceneSlide = slide => !slide.classList.contains('seo-content');
 
-  if (isMobileLayout()) {
-    document.querySelectorAll('.mobile-map [data-target]').forEach(control => {
-      control.addEventListener('click', event => {
-        event.preventDefault();
-        const target = document.getElementById(control.dataset.target);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    document.querySelectorAll('[data-action]').forEach(control => {
-      control.addEventListener('click', event => {
-        event.preventDefault();
-        const slides = [...document.querySelectorAll('.slide')].filter(isSceneSlide);
-        const activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
-        const nextIndex = control.dataset.action === 'next' ? activeIndex + 1 : activeIndex - 1;
-        const target = slides[nextIndex];
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    return;
-  }
-
   window.scrollTo(0, 0);
   if (location.hash) {
     history.replaceState(null, '', location.pathname + location.search);
@@ -37,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const deck = document.getElementById('deck');
   const slides = [...deck.querySelectorAll('.slide')].filter(isSceneSlide);
   const railButtons = [...document.querySelectorAll('.chapter-rail button')];
-  const mapButtons = [...document.querySelectorAll('.mobile-map [data-target], .mobile-map [data-action]')];
+  const mapButtons = [...document.querySelectorAll('.mobile-map [data-target]')];
   const langToggle = document.getElementById('langToggle');
   let currentIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
   let isAnimating = false;
@@ -103,6 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(document.documentElement.lang === 'ru' ? 'en' : 'ru');
   });
 
+  const syncNavigation = () => {
+    const activeId = slides[currentIndex].id;
+    railButtons.forEach(button => button.classList.toggle('is-active', button.dataset.target === activeId));
+    mapButtons.forEach(button => button.classList.toggle('is-current', button.dataset.target === activeId));
+    slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== currentIndex)));
+  };
+
   const goToSlide = (target, updateHash = true, force = false) => {
     const nextIndex = typeof target === 'number' ? (target + slides.length) % slides.length : slides.findIndex(slide => slide.id === target);
     if (!force && (nextIndex < 0 || nextIndex === currentIndex || isAnimating)) return;
@@ -119,15 +99,19 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => { isAnimating = false; }, 310);
   };
 
-  const syncNavigation = () => {
-    const activeId = slides[currentIndex].id;
-    railButtons.forEach(button => button.classList.toggle('is-active', button.dataset.target === activeId));
-    mapButtons.forEach(button => button.classList.toggle('is-current', button.dataset.target === activeId));
-    slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== currentIndex)));
-  };
+  document.querySelectorAll('[data-target]').forEach(control => {
+    control.addEventListener('click', event => {
+      event.preventDefault();
+      goToSlide(control.dataset.target);
+    });
+  });
 
-  document.querySelectorAll('[data-target]').forEach(control => control.addEventListener('click', () => goToSlide(control.dataset.target)));
-  document.querySelectorAll('[data-action]').forEach(control => control.addEventListener('click', () => goToSlide(currentIndex + (control.dataset.action === 'next' ? 1 : -1))));
+  document.querySelectorAll('[data-action]').forEach(control => {
+    control.addEventListener('click', event => {
+      event.preventDefault();
+      goToSlide(currentIndex + (control.dataset.action === 'next' ? 1 : -1));
+    });
+  });
 
   document.addEventListener('keydown', event => {
     if (['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)) { event.preventDefault(); goToSlide(currentIndex + 1); }
@@ -148,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('wheel', event => {
-    if (wheelLock || Math.abs(event.deltaY) < 18) return;
+    if (isMobileLayout() || wheelLock || Math.abs(event.deltaY) < 18) return;
     if (getScrollableScene(event)) return;
     event.preventDefault();
     wheelLock = true;
@@ -158,86 +142,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let startX = 0, startY = 0, tracking = false;
   window.addEventListener('touchstart', event => {
-    startX = event.touches[0].clientX; startY = event.touches[0].clientY; tracking = true;
+    if (event.touches.length !== 1) return;
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    tracking = true;
   }, { passive:true });
 
   window.addEventListener('touchmove', event => {
     if (!tracking) return;
     const deltaX = Math.abs(event.touches[0].clientX - startX);
     const deltaY = Math.abs(event.touches[0].clientY - startY);
+    // Horizontal swipe changes scenes; leave vertical for page/scene scroll.
     if (deltaX <= deltaY || deltaX < 12) return;
     event.preventDefault();
   }, { passive:false });
 
   window.addEventListener('touchend', event => {
     if (!tracking) return;
+    tracking = false;
+    if (!event.changedTouches.length) return;
+
     const deltaX = event.changedTouches[0].clientX - startX;
     const deltaY = event.changedTouches[0].clientY - startY;
-    tracking = false;
     const absX = Math.abs(deltaX);
     const absY = Math.abs(deltaY);
-    if (absX < 56 || absY >= 72 || absX < absY * 1.7) return;
+    if (absX < 48 || absY >= 72 || absX < absY * 1.5) return;
     goToSlide(currentIndex + (deltaX < 0 ? 1 : -1));
   }, { passive:true });
 
-  const hashId=location.hash.slice(1);
+  const hashId = location.hash.slice(1);
   document.body.className = `theme-${slides[currentIndex].id}`;
-  if(hashId && slides.some(slide=>slide.id===hashId)){
+  if (hashId && slides.some(slide => slide.id === hashId)) {
     goToSlide(hashId, false, true);
   }
   syncNavigation();
 });
-
-(function initMobileSceneGestures() {
-  const isMobileLayout = () => window.matchMedia('(max-width: 760px)').matches;
-  const sceneSlides = [...document.querySelectorAll('.slide')].filter(slide => !slide.classList.contains('seo-content'));
-
-  if (!sceneSlides.length || !isMobileLayout()) return;
-
-  let startX = 0;
-  let startY = 0;
-  let tracking = false;
-  let locked = false;
-
-  const goToSlide = index => {
-    if (locked) return;
-    const nextIndex = Math.min(slides.length - 1, Math.max(0, index));
-    const current = sceneSlides.findIndex(slide => slide.classList.contains('is-active'));
-    if (nextIndex === current) return;
-
-    locked = true;
-    sceneSlides[current].classList.remove('is-active');
-    sceneSlides[nextIndex].classList.add('is-active');
-    sceneSlides.forEach((slide, slideIndex) => slide.setAttribute('aria-hidden', String(slideIndex !== nextIndex)));
-    history.replaceState(null, '', `#${sceneSlides[nextIndex].id}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => { locked = false; }, 320);
-  };
-
-  window.addEventListener('touchstart', event => {
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
-    tracking = true;
-  }, { passive: true });
-
-  window.addEventListener('touchmove', event => {
-    const deltaX = Math.abs(event.touches[0].clientX - startX);
-    const deltaY = Math.abs(event.touches[0].clientY - startY);
-
-    if (deltaX > deltaY && deltaX > 10) event.preventDefault();
-  }, { passive: false });
-
-  window.addEventListener('touchend', () => {
-    if (!tracking) return;
-    tracking = false;
-
-    const deltaX = event.changedTouches[0].clientX - startX;
-    const deltaY = event.changedTouches[0].clientY - startY;
-    const absX = Math.abs(deltaX);
-    const absY = Math.abs(deltaY);
-
-    if (absX < 48 || absY >= absX * 1.2) return;
-    const current = Math.max(0, sceneSlides.findIndex(slide => slide.classList.contains('is-active')));
-    goToSlide(current + (deltaX < 0 ? 1 : -1));
-  }, { passive: true });
-})();

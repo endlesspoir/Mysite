@@ -76,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(document.documentElement.lang === 'ru' ? 'en' : 'ru');
   });
 
+  const initialLang = new URLSearchParams(location.search).get('lang') === 'ru' ? 'ru' : 'en';
+  applyLanguage(initialLang);
+
   const syncNavigation = () => {
     const activeId = slides[currentIndex].id;
     railButtons.forEach(button => button.classList.toggle('is-active', button.dataset.target === activeId));

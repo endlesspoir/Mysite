@@ -696,15 +696,28 @@ h2 {
   body[class^="theme-"] { background-image:none; }
 
   .shape { display:none!important; animation:none!important; }
-  html,
+
+  /* Chrome: overflow-x:hidden + overflow-y:auto on the same html/body node
+     often kills vertical touch scroll. Keep one scroller on html; body flows. */
+  html {
+    width:100%;
+    height:auto;
+    min-height:100dvh;
+    margin:0!important;
+    padding:0!important;
+    overflow-x:clip;
+    overflow-y:auto;
+    overscroll-behavior-y:none;
+    -webkit-overflow-scrolling:touch;
+  }
+
   body {
     width:100%;
     height:auto;
     min-height:100dvh;
     margin:0!important;
     padding:0!important;
-    overflow-x:hidden!important;
-    overflow-y:auto!important;
+    overflow:visible;
     overscroll-behavior-y:none;
   }
 

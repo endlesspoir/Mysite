@@ -148,11 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
     tracking = true;
   }, { passive:true });
 
+  // Desktop only: block horizontal page pan while swiping between scenes.
+  // On mobile Chrome a non-passive touchmove (even without preventDefault on
+  // vertical moves) can freeze native up/down scrolling — rely on touch-action:pan-y.
   window.addEventListener('touchmove', event => {
-    if (!tracking) return;
+    if (!tracking || isMobileLayout()) return;
     const deltaX = Math.abs(event.touches[0].clientX - startX);
     const deltaY = Math.abs(event.touches[0].clientY - startY);
-    // Horizontal swipe changes scenes; leave vertical for page/scene scroll.
     if (deltaX <= deltaY || deltaX < 12) return;
     event.preventDefault();
   }, { passive:false });

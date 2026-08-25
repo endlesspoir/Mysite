@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!force && (nextIndex < 0 || nextIndex === currentIndex || isAnimating)) return;
 
     isAnimating = true;
+    window.scrollTo({ top: 0, behavior: 'instant' });
     slides[currentIndex].classList.remove('is-active');
     slides[nextIndex].classList.add('is-active');
     currentIndex = nextIndex;

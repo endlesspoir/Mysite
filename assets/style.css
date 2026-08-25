@@ -620,29 +620,29 @@ h2 {
     opacity:0!important;
   }
 
-  body:has(.slide.is-active.theme-about),
-  .confetti-field:has(+ main .slide.is-active.theme-about) { background-color:#7ed7b8; background-image:none; }
-  body:has(.slide.is-active.theme-work),
-  .confetti-field:has(+ main .slide.is-active.theme-work) { background-color:#ff77c8; background-image:none; }
-  body:has(.slide.is-active.theme-services),
-  .confetti-field:has(+ main .slide.is-active.theme-services) { background-color:#ff9f68; background-image:none; }
-  body:has(.slide.is-active.theme-contact),
-  .confetti-field:has(+ main .slide.is-active.theme-contact) { background-color:#57ccff; background-image:none; }
-  body:has(.slide.is-active.theme-stack),
-  .confetti-field:has(+ main .slide.is-active.theme-stack) { background-color:#8fd3f4; background-image:none; }
+  body.theme-about { background-color:#7ed7b8; }
+  body.theme-work { background-color:#ff77c8; }
+  body.theme-services { background-color:#ff9f68; }
+  body.theme-contact { background-color:#57ccff; }
+  body.theme-stack { background-color:#8fd3f4; }
+
+  body[class^="theme-"] { background-image:none; }
 
   .shape { display:none!important; animation:none!important; }
   html,
-  body,
-  .deck {
+  body {
     width:100%;
     height:auto;
     min-height:100dvh;
     margin:0!important;
     padding:0!important;
     overflow-x:hidden!important;
-    overflow-y:auto!important;
+    overflow-y:visible!important;
     overscroll-behavior-y:none;
+  }
+
+  body {
+    overflow-y:auto!important;
   }
 
   .deck {
@@ -831,7 +831,7 @@ h2 {
     display:flex!important;
     flex-direction:column!important;
     align-items:center!important;
-    justify-content:center!important;
+    justify-content:safe center!important;
     gap:16px!important;
     height:auto!important;
     min-height:0!important;
@@ -871,7 +871,7 @@ h2 {
     z-index:auto!important;
     display:flex!important;
     flex-direction:column!important;
-    justify-content:center!important;
+    justify-content:safe center!important;
     width:min(568px, 100%)!important;
     margin:max(10px, 2dvh) auto max(96px, calc(env(safe-area-inset-bottom) + 86px))!important;
     padding:0 16px!important;
@@ -888,7 +888,7 @@ h2 {
   .scene-grid.inventory-grid {
     display:grid!important;
     grid-template-columns:repeat(auto-fit,minmax(min(100%, 240px),1fr))!important;
-    align-items:start!important;
+    align-items:stretch!important;
     width:min(100%,600px)!important;
     height:auto!important;
     min-height:0!important;
@@ -912,8 +912,9 @@ h2 {
     border:4px solid var(--ink)!important;
     background:#fff8e7!important;
     color:var(--ink)!important;
-    min-height:0;
+    min-height:100%;
     height:auto;
+    height:100%;
     max-height:none;
     padding:14px;
     border-width:4px;

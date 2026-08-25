@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slides[currentIndex].classList.remove('is-active');
     slides[nextIndex].classList.add('is-active');
     currentIndex = nextIndex;
+    document.body.className = `theme-${slides[nextIndex].id}`;
     syncNavigation();
     if (updateHash) history.replaceState(null, '', `#${slides[nextIndex].id}`);
 
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive:true });
 
   const hashId=location.hash.slice(1);
+  document.body.className = `theme-${slides[currentIndex].id}`;
   if(hashId && slides.some(slide=>slide.id===hashId)){
     goToSlide(hashId, false, true);
   }

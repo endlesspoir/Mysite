@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const isMobileLayout = () => window.matchMedia('(max-width: 760px)').matches;
+
+  if (isMobileLayout()) {
+    document.querySelectorAll('.mobile-map [data-target]').forEach(control => {
+      control.addEventListener('click', event => {
+        event.preventDefault();
+        const target = document.getElementById(control.dataset.target);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-action]').forEach(control => {
+      control.addEventListener('click', event => {
+        event.preventDefault();
+        const slides = [...document.querySelectorAll('.slide')];
+        const activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
+        const nextIndex = control.dataset.action === 'next' ? activeIndex + 1 : activeIndex - 1;
+        const target = slides[nextIndex];
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    return;
+  }
+
   window.scrollTo(0, 0);
   if (location.hash) {
     history.replaceState(null, '', location.pathname + location.search);

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const translations = {
     en: {
       status:'OPEN TO CHAT', startTag:'SELECT PLAYER · MIDDLE DEV',
-      startTitle:'I build products that work', startLead:'Java and Spring Boot backend · mobile apps · AI · Telegram bots · websites · Web3 integrations.',
+      startTitle:'Middle Java / Spring Boot developer — backend, Android, AI and bots', startLead:'Portfolio: Java and Spring Boot · Kotlin Android · AI · Telegram bots · Web3. Open to work and chat.',
       telegram:'Write on Telegram', integrations:'integrations', level:'backend level',
       playerCard:'PLAYER CARD', role:'Backend Developer', cardText:'I build services, connect mobile clients, add AI and deliver projects to a working result.',
       skillJava:'Java · Spring', skillKotlin:'Kotlin · Android', skillAiBots:'AI · Bots', skillWeb3:'Web3 · API',

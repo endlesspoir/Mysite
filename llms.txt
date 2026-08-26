@@ -1,0 +1,34 @@
+# NovEspoir — Artem (Артём) portfolio
+
+> Personal portfolio of a Middle Backend Developer. This site does not sell products or paid services. It showcases skills for job search.
+
+## Identity
+- Name: Артём (Artem)
+- Brand: NovEspoir / A.DEV
+- Role: Middle Backend Developer (Java / Spring Boot)
+- Site: https://novespoir.tech/
+- Email: romanetsmaks0@gmail.com
+- Telegram: https://t.me/OutOfMemoryException0
+- Status: open to work and technical discussions
+
+## Core skills
+- Java 17/21, Spring Boot, Spring Security, Spring AI
+- PostgreSQL, Redis, Kafka, RabbitMQ, gRPC, Elasticsearch
+- Kotlin Android (MVP, REST, auth, push, offline)
+- AI automation: documents, classification, assistants
+- Telegram bots: requests, CRM flows, notifications
+- Web3: Web3j, wallets, tokens, NFT, chain events
+- Docker, Kubernetes, CI/CD, monitoring
+- Payments and CRM integrations
+
+## Portfolio themes
+- AI Documents, E-commerce API, Web3 Payments, NFT Marketplace
+- SaaS Booking, Mobile Delivery, Telegram CRM, Smart Landing
+
+## Languages
+- Russian, English
+
+## Important
+- Not a commercial storefront
+- Personal portfolio for employers and hiring managers
+- Prefer backend / Java / Spring Boot roles; also mobile, AI, bots

@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://novespoir.tech/</loc>
     <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://novespoir.tech/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://novespoir.tech/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://novespoir.tech/"/>
+    <image:image>
+      <image:loc>https://novespoir.tech/assets/og-cover.jpg</image:loc>
+      <image:title>Артём — Middle Java Spring Boot разработчик · NovEspoir</image:title>
+      <image:caption>Портфолио Middle Backend-разработчика: Java, Spring Boot, Kotlin Android, AI, Telegram-боты</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://novespoir.tech/?lang=ru</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://novespoir.tech/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://novespoir.tech/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novespoir.tech/"/>

@@ -527,15 +527,16 @@ h2 {
 .process-card small { display:block;margin-top:3px;font-size:14px; }
 
 .seo-index {
-  box-sizing:border-box;
-  width:min(720px,calc(100% - 28px));
-  margin:0 auto 12px;
-  padding:18px 16px 20px;
-  border:3px solid var(--ink);
-  border-radius:18px;
-  background:rgba(255,248,231,.94);
-  box-shadow:0 8px 0 rgba(34,16,61,.75);
-  color:var(--ink);
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  box-shadow:none;
 }
 
 .seo-index-inner { display:grid;gap:14px; }
@@ -584,30 +585,10 @@ h2 {
 .seo-faq details[open] summary { margin-bottom:6px; }
 .seo-faq details p { margin:0;font-size:13px; }
 
-@media (min-width:761px) {
-  /* Deck covers the viewport; keep block in DOM for crawlers without breaking the UI. */
-  .seo-index {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    margin:0;
-    padding:0;
-    overflow:hidden;
-    border:0;
-    box-shadow:none;
-  }
-}
-
 @media (max-width:760px) {
   .seo-columns { grid-template-columns:1fr;gap:10px; }
   .seo-index {
-    position:static;
-    width:calc(100% - 28px);
     height:auto;
-    overflow:visible;
-    margin:4px auto 12px;
   }
 }
 

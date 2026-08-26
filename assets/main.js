@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const translations = {
     en: {
-      status:'OPEN FOR ORDERS', startTag:'SELECT PLAYER · MIDDLE DEV',
+      status:'OPEN TO CHAT', startTag:'SELECT PLAYER · MIDDLE DEV',
       startTitle:'I build products that work', startLead:'Java and Spring Boot backend · mobile apps · AI · Telegram bots · websites · Web3 integrations.',
       telegram:'Write on Telegram', integrations:'integrations', level:'backend level',
       playerCard:'PLAYER CARD', role:'Backend Developer', cardText:'I build services, connect mobile clients, add AI and deliver projects to a working result.',
@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
       q3:'Wallets, transactions and blockchain network events.', q4:'Catalogs, orders, smart-contract events and operation history.',
       q5:'Bookings, roles, subscriptions and JWT authorization.', q6:'Android app for orders, statuses and payments.',
       q7:'Bot for requests, notifications, bookings and internal processes.', q8:'Bright service website with clear structure and fast launch.',
-      shopTag:'GAME SHOP', shopTitle:'What you can order', orderNow:'Discuss order',
+      shopTag:'SKILL TREE', shopTitle:'What I can do', orderNow:'Discuss a skill',
+      disclaimer:'This website does not sell anything and does not provide paid services. It is a personal portfolio for job search and showcasing professional skills.',
       popularBadge:'Popular',
       serviceAi:'AI & Automation', serviceBackend:'Backend', serviceMobile:'Mobile Apps',
       serviceBots:'Telegram Bots', serviceSites:'Bright Websites', serviceWeb3:'Web3 Solutions',
@@ -54,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
       writeTg:'Telegram', writeMail:'Send email', howStart:'How we start', stepRequest:'Request', stepRequestText:'your own words are fine',
       stepDiscuss:'Discussion', stepDiscussText:'goal and constraints', stepPlan:'Plan', stepPlanText:'solution and estimate',
       stepWork:'Work', stepWorkText:'result and handover', navStart:'Start', navAbout:'Hero', navWork:'Work',
-      navServices:'Order', navStack:'Stack', navContact:'Contact',
-      mStart:'Start', mWork:'Work', mServices:'Order', mStack:'Stack', mContact:'Chat'
+      navServices:'Skills', navStack:'Stack', navContact:'Contact',
+      mStart:'Start', mWork:'Work', mServices:'Skills', mStack:'Stack', mContact:'Chat'
     }
   };
 

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
       q5:'Bookings, roles, subscriptions and JWT authorization.', q6:'Android app for orders, statuses and payments.',
       q7:'Bot for requests, notifications, bookings and internal processes.', q8:'Bright service website with clear structure and fast launch.',
       shopTag:'SKILL TREE', shopTitle:'What I can do', orderNow:'Discuss a skill',
-      disclaimer:'This website does not sell anything and does not provide paid services. It is a personal portfolio for job search and showcasing professional skills.',
+      disclaimer:' It is a personal portfolio for showcasing professional skills.',
       popularBadge:'Popular',
       serviceAi:'AI & Automation', serviceBackend:'Backend', serviceMobile:'Mobile Apps',
       serviceBots:'Telegram Bots', serviceSites:'Bright Websites', serviceWeb3:'Web3 Solutions',

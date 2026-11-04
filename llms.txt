@@ -1,11 +1,11 @@
 # NovEspoir — Artem (Артём) portfolio
 
-> Personal portfolio of a Middle Backend Developer. This site does not sell products or paid services. It showcases skills for job search.
+> Personal portfolio of a Backend Developer. This site does not sell products or paid services. It showcases skills for job search.
 
 ## Identity
 - Name: Артём (Artem)
 - Brand: NovEspoir / A.DEV
-- Role: Middle Backend Developer (Java / Spring Boot)
+- Role: Backend Developer (Java / Spring Boot)
 - Site: https://novespoir.tech/
 - Email: romanetsmaks0@gmail.com
 - Telegram: https://t.me/OutOfMemoryException0

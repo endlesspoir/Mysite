@@ -10,8 +10,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://novespoir.tech/"/>
     <image:image>
       <image:loc>https://novespoir.tech/assets/og-cover.jpg</image:loc>
-      <image:title>Артём — Middle Java Spring Boot разработчик · NovEspoir</image:title>
-      <image:caption>Портфолио Middle Backend-разработчика: Java, Spring Boot, Kotlin Android, AI, Telegram-боты</image:caption>
+      <image:title>Артём — Java Spring Boot разработчик · NovEspoir</image:title>
+      <image:caption>Портфолио Backend-разработчика: Java, Spring Boot, Kotlin Android, AI, Telegram-боты</image:caption>
     </image:image>
   </url>
   <url>

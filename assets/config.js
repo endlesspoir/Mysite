@@ -17,7 +17,7 @@
  */
 window.NOVESPOIR_CONFIG = {
   leadEndpoint: "",
-  web3formsKey: "",
+  web3formsKey: "21cec1ab-3110-44fb-8eb1-ef44b0a36bce",
   email: "romanetsmaks0@gmail.com",
   botUrl: "",
   siteUrl: "https://novespoir.tech"

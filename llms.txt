@@ -1,6 +1,6 @@
 # NovEspoir — websites, Telegram bots and AI automation
 
-> NovEspoir is a small development studio that builds websites, landing pages, Telegram bots,
+> NovEspoir is an independent developer who builds websites, landing pages, Telegram bots,
 > AI automation, integrations and MVPs for businesses. The website collects project requests
 > through a lead form and by email. Work is scoped and priced after a short brief; no fixed
 > prices are published on the site.
@@ -24,9 +24,10 @@
 - MVP end to end: architecture, design, development, launch and support
 
 ## Typical timelines
-- Landing page or simple Telegram bot: 5–10 days
-- Website with payments and integrations: 2–3 weeks
-- MVP or complex product: from 3 weeks
+- Landing page: 2–3 days
+- Simple Telegram bot: 5–10 days
+- Website with payments and integrations: from 1 week
+- MVP or complex product: from 2 weeks
 - Exact scope, timeline and cost are agreed after a brief
 
 ## How to start
@@ -50,8 +51,8 @@ The cost depends on scope, integrations and timeline. After a short brief, NovEs
 clear plan, quote and schedule. The site intentionally does not publish fixed prices.
 
 ### How long does launch take?
-A landing page or simple bot usually takes 5–10 days. A website with payments and integrations
-takes 2–3 weeks. An MVP or complex product takes from 3 weeks.
+A landing page usually takes 2–3 days; a simple bot takes 5–10 days. A website with payments
+and integrations takes from 1 week. An MVP or complex product takes from 2 weeks.
 
 ### How do I contact NovEspoir?
 Use the form on the website or email romanetsmaks0@gmail.com. Russian and English are supported.

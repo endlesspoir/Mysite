@@ -1902,6 +1902,7 @@ body.theme-packages { background-image:none;background-color:#c8b6ff;transition:
 
 /* Tablet services: keep the section usable between the desktop and phone layouts. */
 @media (min-width:761px) and (max-width:1150px) {
+  #services .slide-inner { width:min(1180px,calc(100vw - 84px)); }
   #services .scene-head { flex-direction:row;align-items:center;gap:12px; }
   #services .scene-head > div { flex:1 1 auto; }
   #services .scene-head .tag { display:none; }

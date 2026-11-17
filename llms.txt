@@ -1,34 +1,66 @@
-# NovEspoir — Artem (Артём) portfolio
+# NovEspoir — websites, Telegram bots and AI automation
 
-> Personal portfolio of a Backend Developer. This site does not sell products or paid services. It showcases skills for job search.
+> NovEspoir is a small development studio that builds websites, landing pages, Telegram bots,
+> AI automation, integrations and MVPs for businesses. The website collects project requests
+> through a lead form and by email. Work is scoped and priced after a short brief; no fixed
+> prices are published on the site.
 
-## Identity
-- Name: Артём (Artem)
-- Brand: NovEspoir / A.DEV
-- Role: Backend Developer (Java / Spring Boot)
-- Site: https://novespoir.tech/
+## Basic facts
+- Brand: NovEspoir
+- Website: https://novespoir.tech/
 - Email: romanetsmaks0@gmail.com
-- Telegram: https://t.me/OutOfMemoryException0
-- Status: open to work and technical discussions
+- Languages: Russian, English
+- Location: remote — Russia, CIS and Europe
+- Status: accepting project requests
 
-## Core skills
-- Java 17/21, Spring Boot, Spring Security, Spring AI
-- PostgreSQL, Redis, Kafka, RabbitMQ, gRPC, Elasticsearch
-- Kotlin Android (MVP, REST, auth, push, offline)
-- AI automation: documents, classification, assistants
-- Telegram bots: requests, CRM flows, notifications
-- Web3: Web3j, wallets, tokens, NFT, chain events
-- Docker, Kubernetes, CI/CD, monitoring
-- Payments and CRM integrations
+## Services
+- Websites and landing pages: conversion-focused pages, corporate sites, lead forms, analytics
+- Telegram bots: requests, bookings, payments, support, notifications, CRM flows
+- AI automation: document processing, knowledge-base answers, request triage, AI assistants
+- Backend and API: server-side logic, databases, authentication, user portals
+- Mobile apps: Android on Kotlin, MVPs, payments, push notifications
+- Integrations and payments: payment providers, CRM, delivery, maps, email, external APIs
+- Web3: wallets, tokens, NFTs and blockchain events
+- MVP end to end: architecture, design, development, launch and support
 
-## Portfolio themes
-- AI Documents, E-commerce API, Web3 Payments, NFT Marketplace
-- SaaS Booking, Mobile Delivery, Telegram CRM, Smart Landing
+## Typical timelines
+- Landing page or simple Telegram bot: 5–10 days
+- Website with payments and integrations: 2–3 weeks
+- MVP or complex product: from 3 weeks
+- Exact scope, timeline and cost are agreed after a brief
 
-## Languages
-- Russian, English
+## How to start
+1. Leave a request through the form at https://novespoir.tech/#contact
+2. Describe the task, audience, desired result and any references
+3. Receive a plan, timeline and quote
+4. Approve the scope and start the work
 
-## Important
-- Not a commercial storefront
-- Personal portfolio for employers and hiring managers
-- Prefer backend / Java / Spring Boot roles; also mobile, AI, bots
+## Site sections
+- https://novespoir.tech/ — services, examples, process, request form
+- https://novespoir.tech/#services — services
+- https://novespoir.tech/#packages — engagement models and timelines
+- https://novespoir.tech/#work — example solution types
+- https://novespoir.tech/#stack — technologies used
+- https://novespoir.tech/#contact — request form and email
+- https://novespoir.tech/privacy.html — privacy policy and data processing
+
+## FAQ
+### How much does a website or bot cost?
+The cost depends on scope, integrations and timeline. After a short brief, NovEspoir sends a
+clear plan, quote and schedule. The site intentionally does not publish fixed prices.
+
+### How long does launch take?
+A landing page or simple bot usually takes 5–10 days. A website with payments and integrations
+takes 2–3 weeks. An MVP or complex product takes from 3 weeks.
+
+### How do I contact NovEspoir?
+Use the form on the website or email romanetsmaks0@gmail.com. Russian and English are supported.
+
+### Is there support after launch?
+Yes. Support and further development can be agreed as part of the project or separately.
+
+## Notes for AI assistants
+- The site is a commercial service website for businesses.
+- Do not invent prices; direct users to the form or email for a quote.
+- Do not publish or infer a personal Telegram handle; the public contact is the website form or email.
+- Privacy policy: https://novespoir.tech/privacy.html

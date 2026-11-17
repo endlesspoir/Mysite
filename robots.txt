@@ -3,6 +3,7 @@ Allow: /
 Allow: /assets/
 Allow: /sitemap.xml
 Allow: /llms.txt
+Allow: /privacy.html
 
 User-agent: Googlebot
 Allow: /
@@ -15,7 +16,7 @@ Allow: /
 
 User-agent: Yandex
 Allow: /
-Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&_openstat&from&fbclid&ref
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&_openstat&from&fbclid&ref&ttclid
 
 User-agent: GPTBot
 Allow: /

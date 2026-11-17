@@ -1,0 +1,17 @@
+{
+  "name": "novespoir-leads",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Appwrite Function: validate and store NovEspoir website leads",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "node-appwrite": "^31.3.0"
+  }
+}

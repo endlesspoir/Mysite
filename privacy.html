@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Политика конфиденциальности — NovEspoir</title>
+  <meta name="description" content="Политика обработки персональных данных сайта novespoir.tech: какие данные собираются, зачем, где хранятся и как отозвать согласие.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://novespoir.tech/privacy.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#FF5A5F">
+
+  <script>
+    (function () {
+      var lang = 'ru';
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        var saved = localStorage.getItem('novespoir:lang');
+        var nav = navigator.language || (navigator.languages && navigator.languages[0]) || '';
+        lang = (q === 'ru' || q === 'en')
+          ? q
+          : ((saved === 'ru' || saved === 'en') ? saved : (String(nav).toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en'));
+      } catch (error) {}
+      document.documentElement.lang = lang;
+      window.__legalLang = lang;
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@700;900&display=swap">
+  <link rel="stylesheet" href="assets/legal.css">
+</head>
+<body>
+  <div class="legal-shell">
+    <header class="legal-top">
+      <a class="legal-logo" href="/">NOV<span>ESPOIR</span></a>
+      <div class="legal-actions">
+        <a class="legal-btn" href="/" data-legal-back>← На сайт</a>
+        <button class="legal-btn" id="legalLangToggle" type="button" aria-label="Switch to English">EN</button>
+      </div>
+    </header>
+
+    <main class="legal-card">
+      <section data-legal-lang="ru">
+        <span class="legal-kicker">Документы</span>
+        <h1>Политика конфиденциальности</h1>
+        <div class="legal-meta">
+          <span>Сайт: novespoir.tech</span>
+          <span>Редакция от 17 ноября 2026 г.</span>
+        </div>
+
+        <p>
+          Эта политика объясняет, какие данные NovEspoir получает через сайт novespoir.tech,
+          зачем они нужны, где хранятся и как вы можете управлять ими. Мы стараемся собирать
+          только то, что действительно нужно, чтобы ответить на заявку и обсудить проект.
+        </p>
+
+        <h2>1. Кто обрабатывает данные</h2>
+        <p>
+          Оператор данных — NovEspoir (далее — «мы», «Студия»). Связаться по вопросам
+          персональных данных можно по адресу
+          <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a>.
+        </p>
+
+        <h2>2. Какие данные мы собираем</h2>
+        <ul>
+          <li>имя, которое вы указали в форме;</li>
+          <li>контакт для связи: Telegram, телефон или email;</li>
+          <li>описание задачи, выбранную услугу и масштаб проекта;</li>
+          <li>техническую информацию о заявке: страницу входа, referrer, UTM-метки и рекламные click ID (например, ttclid), язык интерфейса;</li>
+          <li>служебные данные, которые автоматически передаёт браузер: IP-адрес, тип устройства и браузера, время запроса — в логах хостинга и функции обработки формы.</li>
+        </ul>
+        <p>
+          Мы не просим паспортные данные, номера банковских карт и другую избыточную информацию.
+          Не отправляйте такие данные через форму.
+        </p>
+
+        <h2>3. Зачем мы обрабатываем данные</h2>
+        <ul>
+          <li>чтобы ответить на заявку и обсудить задачу;</li>
+          <li>чтобы подготовить предложение, план работ и оценку;</li>
+          <li>чтобы согласовать сроки, формат работы и связь по проекту;</li>
+          <li>чтобы защищать форму от спама и злоупотреблений;</li>
+          <li>чтобы улучшать сайт и понимать, какие источники трафика приводят заявки.</li>
+        </ul>
+
+        <h2>4. На каком основании</h2>
+        <p>
+          Мы обрабатываем данные на основании вашего согласия, которое вы даёте, отмечая
+          соответствующий чекбокс перед отправкой формы. Согласие можно отозвать в любой момент,
+          написав на почту. Отзыв не влияет на обработку, которая уже была выполнена.
+        </p>
+
+        <h2>5. Кому передаются данные</h2>
+        <p>
+          Мы не продаём данные и не передаём их третьим лицам для их собственного маркетинга.
+          Для работы сайта и формы используются технические сервисы:
+        </p>
+        <ul>
+          <li>Appwrite Cloud — хостинг сайта, база данных и функция обработки формы;</li>
+          <li>Telegram — только если настроены уведомления о новых заявках для владельца сайта;</li>
+          <li>Google Fonts — загрузка шрифтов; запрос может передавать IP-адрес и технические данные браузера.</li>
+        </ul>
+        <p>
+          Серверы Appwrite могут находиться за пределами вашей страны (регион Frankfurt, ЕС).
+          Отправляя форму, вы соглашаетесь с такой трансграничной передачей в объёме, необходимом
+          для обработки заявки. Данные также могут быть раскрыты, если это требует закон.
+        </p>
+
+        <h2>6. Сколько мы храним данные</h2>
+        <p>
+          Данные заявки хранятся до достижения цели обработки или до отзыва согласия, но обычно
+          не дольше 12 месяцев с момента последнего контакта. Если мы начали работу по проекту,
+          срок хранения может быть больше — в объёме, необходимом для исполнения договора и
+          требований закона. Технические логи хостинга хранятся по правилам провайдера.
+        </p>
+
+        <h2>7. Cookies и локальное хранилище</h2>
+        <p>
+          Сайт не использует рекламные cookies по умолчанию. В браузере могут сохраняться:
+        </p>
+        <ul>
+          <li>выбранный язык интерфейса — в <code>localStorage</code>;</li>
+          <li>источник перехода и UTM-метки — в <code>sessionStorage</code> на время сессии.</li>
+        </ul>
+        <p>
+          Эти данные нужны для удобства и атрибуции заявки. Их можно удалить в настройках браузера.
+          Если позже на сайте появятся рекламные пиксели или аналитика, политика будет обновлена.
+        </p>
+
+        <h2>8. Ваши права</h2>
+        <p>Вы можете:</p>
+        <ul>
+          <li>узнать, какие данные о вас хранятся;</li>
+          <li>попросить исправить неточные данные;</li>
+          <li>попросить удалить данные;</li>
+          <li>отозвать согласие на обработку;</li>
+          <li>получить информацию о том, как обрабатываются ваши данные.</li>
+        </ul>
+        <p>
+          Для этого напишите на <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a>
+          с контакта, который вы указывали в заявке. Мы можем попросить подтвердить, что запрос
+          действительно от вас.
+        </p>
+
+        <h2>9. Безопасность</h2>
+        <p>
+          Доступ к заявкам ограничен владельцем сайта. Передача данных между браузером и сервером
+          идёт по HTTPS. Мы не храним платёжные данные на сайте. При этом ни один способ передачи
+          и хранения данных не гарантирует абсолютную защиту — если вы считаете, что ваши данные
+          могли быть скомпрометированы, свяжитесь с нами.
+        </p>
+
+        <h2>10. Изменения политики</h2>
+        <p>
+          Мы можем обновлять эту политику, если меняются сайт, сервисы или требования закона.
+          Актуальная редакция всегда доступна на этой странице. Дата последнего обновления
+          указана в начале документа.
+        </p>
+
+        <h2>11. Контакты</h2>
+        <p>
+          NovEspoir · <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a> ·
+          <a href="/">novespoir.tech</a>
+        </p>
+
+        <p class="legal-note">
+          Отправляя форму, вы подтверждаете, что ознакомились с этой политикой и согласны
+          на обработку данных для ответа на вашу заявку.
+        </p>
+      </section>
+
+      <section data-legal-lang="en" hidden>
+        <span class="legal-kicker">Documents</span>
+        <h1>Privacy Policy</h1>
+        <div class="legal-meta">
+          <span>Website: novespoir.tech</span>
+          <span>Version: 17 November 2026</span>
+        </div>
+
+        <p>
+          This policy explains what data NovEspoir receives through novespoir.tech, why we need it,
+          where it is stored and how you can manage it. We try to collect only what is necessary
+          to reply to your request and discuss a project.
+        </p>
+
+        <h2>1. Who processes the data</h2>
+        <p>
+          The data controller is NovEspoir (“we”, “the Studio”). For privacy questions, contact
+          <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a>.
+        </p>
+
+        <h2>2. What data we collect</h2>
+        <ul>
+          <li>the name you enter in the form;</li>
+          <li>your contact: Telegram, phone or email;</li>
+          <li>your task description, selected service and project scope;</li>
+          <li>request metadata: landing page, referrer, UTM parameters and ad click IDs (for example, ttclid), interface language;</li>
+          <li>technical data automatically sent by your browser: IP address, device and browser type, request time — in hosting and form-processing logs.</li>
+        </ul>
+        <p>
+          We do not ask for passport details, bank card numbers or other excessive information.
+          Please do not send such data through the form.
+        </p>
+
+        <h2>3. Why we process it</h2>
+        <ul>
+          <li>to reply to your request and discuss the task;</li>
+          <li>to prepare a proposal, work plan and estimate;</li>
+          <li>to agree on timelines, scope and project communication;</li>
+          <li>to protect the form from spam and abuse;</li>
+          <li>to improve the website and understand which traffic sources bring requests.</li>
+        </ul>
+
+        <h2>4. Legal basis</h2>
+        <p>
+          We process the data based on your consent, which you give by ticking the checkbox before
+          submitting the form. You can withdraw consent at any time by email. Withdrawal does not
+          affect processing already carried out.
+        </p>
+
+        <h2>5. Who receives the data</h2>
+        <p>
+          We do not sell your data or share it with third parties for their own marketing. Technical
+          services used by the website and form:
+        </p>
+        <ul>
+          <li>Appwrite Cloud — website hosting, database and the form-processing function;</li>
+          <li>Telegram — only if new-request notifications are configured for the site owner;</li>
+          <li>Google Fonts — font delivery; the request may transmit your IP address and browser data.</li>
+        </ul>
+        <p>
+          Appwrite servers may be located outside your country (Frankfurt region, EU). By submitting
+          the form, you agree to this cross-border transfer to the extent necessary to process your
+          request. Data may also be disclosed where required by law.
+        </p>
+
+        <h2>6. How long we keep it</h2>
+        <p>
+          Request data is kept until the purpose is achieved or consent is withdrawn, but usually
+          no longer than 12 months from the last contact. If we start working on a project, the
+          retention period may be longer to the extent necessary to perform the contract and meet
+          legal requirements. Hosting technical logs are retained according to the provider’s rules.
+        </p>
+
+        <h2>7. Cookies and local storage</h2>
+        <p>
+          The website does not use advertising cookies by default. Your browser may store:
+        </p>
+        <ul>
+          <li>the selected interface language — in <code>localStorage</code>;</li>
+          <li>the traffic source and UTM parameters — in <code>sessionStorage</code> for the session.</li>
+        </ul>
+        <p>
+          This data is used for convenience and request attribution. You can delete it in your
+          browser settings. If advertising pixels or analytics are added later, this policy will be
+          updated.
+        </p>
+
+        <h2>8. Your rights</h2>
+        <p>You can:</p>
+        <ul>
+          <li>ask what data we hold about you;</li>
+          <li>request correction of inaccurate data;</li>
+          <li>request deletion of your data;</li>
+          <li>withdraw your consent;</li>
+          <li>request information about how your data is processed.</li>
+        </ul>
+        <p>
+          Email <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a> from the contact
+          you used in your request. We may ask you to confirm that the request comes from you.
+        </p>
+
+        <h2>9. Security</h2>
+        <p>
+          Access to requests is limited to the site owner. Data between your browser and the server
+          is transmitted over HTTPS. We do not store payment data on the website. However, no method
+          of transmission or storage guarantees absolute security — if you believe your data may have
+          been compromised, contact us.
+        </p>
+
+        <h2>10. Changes to this policy</h2>
+        <p>
+          We may update this policy if the website, services or legal requirements change. The current
+          version is always available on this page. The last update date is shown at the top.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          NovEspoir · <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a> ·
+          <a href="/">novespoir.tech</a>
+        </p>
+
+        <p class="legal-note">
+          By submitting the form, you confirm that you have read this policy and agree to the
+          processing of your data to respond to your request.
+        </p>
+      </section>
+    </main>
+
+    <footer class="legal-footer">
+      © 2026 NovEspoir · <a href="/">novespoir.tech</a> ·
+      <a href="mailto:romanetsmaks0@gmail.com">romanetsmaks0@gmail.com</a>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var titles = {
+        ru: 'Политика конфиденциальности — NovEspoir',
+        en: 'Privacy Policy — NovEspoir'
+      };
+      var backLabels = { ru: '← На сайт', en: '← Back to site' };
+      var lang = window.__legalLang === 'en' ? 'en' : 'ru';
+      var toggle = document.getElementById('legalLangToggle');
+      var back = document.querySelector('[data-legal-back]');
+
+      function apply(language) {
+        lang = language === 'en' ? 'en' : 'ru';
+        document.documentElement.lang = lang;
+        document.title = titles[lang];
+        document.querySelectorAll('[data-legal-lang]').forEach(function (section) {
+          section.hidden = section.getAttribute('data-legal-lang') !== lang;
+        });
+        if (toggle) {
+          toggle.textContent = lang === 'ru' ? 'EN' : 'RU';
+          toggle.setAttribute('aria-label', lang === 'ru' ? 'Switch to English' : 'Переключить на русский');
+        }
+        if (back) back.textContent = backLabels[lang];
+      }
+
+      apply(lang);
+
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var next = lang === 'ru' ? 'en' : 'ru';
+          try { localStorage.setItem('novespoir:lang', next); } catch (error) {}
+          try {
+            var url = new URL(location.href);
+            url.searchParams.set('lang', next);
+            history.replaceState(null, '', url);
+          } catch (error) {}
+          apply(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

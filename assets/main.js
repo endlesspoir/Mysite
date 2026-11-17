@@ -3,13 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const CONFIG = Object.assign({
     leadEndpoint: '',
+    web3formsKey: '',
     email: 'romanetsmaks0@gmail.com',
     botUrl: '',
     siteUrl: 'https://novespoir.tech'
   }, window.NOVESPOIR_CONFIG || {});
 
   const EMAIL = String(CONFIG.email || 'romanetsmaks0@gmail.com').trim();
-  const LEAD_ENDPOINT = String(CONFIG.leadEndpoint || '').trim().replace(/\/+$/, '');
+  const WEB3FORMS_KEY = String(CONFIG.web3formsKey || '').trim();
+  const LEAD_ENDPOINT = String(CONFIG.leadEndpoint || '').trim().replace(/\/+$/, '')
+    || (WEB3FORMS_KEY ? 'https://api.web3forms.com/submit' : '');
   const BOT_URL = String(CONFIG.botUrl || '').trim();
 
   const isMobileLayout = () => window.matchMedia('(max-width: 760px)').matches;
@@ -777,6 +780,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
+      if (WEB3FORMS_KEY) {
+        Object.assign(payload, {
+          access_key: WEB3FORMS_KEY,
+          subject: currentLang === 'en'
+            ? `Website request: ${values.serviceLabel || values.service}`
+            : `Заявка с сайта: ${values.serviceLabel || values.service}`,
+          from_name: 'NovEspoir',
+          botcheck: values.company,
+          source: attribution.utm_source || attribution.ref || attribution.from || 'direct',
+          medium: attribution.utm_medium || '',
+          campaign: attribution.utm_campaign || '',
+          ttclid: attribution.ttclid || ''
+        });
+        if (values.contact.includes('@')) payload.email = values.contact;
+      }
+
       const controller = new AbortController();
       activeRequest = controller;
       const timeout = window.setTimeout(() => controller.abort(), 20000);
@@ -789,7 +808,10 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const response = await fetch(LEAD_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
           body: JSON.stringify(payload),
           signal: controller.signal,
           mode: 'cors',
@@ -804,9 +826,10 @@ document.addEventListener('DOMContentLoaded', () => {
           data = {};
         }
 
-        if (!response.ok || data.ok !== true) {
+        const delivered = data.ok === true || data.success === true || data.success === 'true';
+        if (!response.ok || !delivered) {
           if (response.status === 429) throw new Error('rate_limited');
-          throw new Error(data.error || 'request_failed');
+          throw new Error(data.message || data.error || 'request_failed');
         }
 
         form.reset();

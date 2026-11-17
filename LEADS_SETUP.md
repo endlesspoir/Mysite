@@ -7,6 +7,30 @@ click ID, русский и английский языки, fallback на email
 Публичного Telegram-бота нет. Telegram в этой схеме — **необязательный приватный канал
 уведомлений для владельца сайта**. На сайте ссылки на него нет.
 
+## Самый быстрый вариант: заявки на email
+
+Если база не нужна, проще всего получать заявки прямо на `romanetsmaks0@gmail.com` через
+Web3Forms. Это бесплатно до 250 заявок в месяц и не требует Appwrite Function.
+
+1. Откройте https://web3forms.com/#start и введите `romanetsmaks0@gmail.com`.
+2. Скопируйте access key из письма.
+3. Вставьте его в `assets/config.js`:
+
+```js
+window.NOVESPOIR_CONFIG = {
+  leadEndpoint: "",
+  web3formsKey: "ваш-access-key",
+  email: "romanetsmaks0@gmail.com",
+  botUrl: "",
+  siteUrl: "https://novespoir.tech"
+};
+```
+
+4. Запушьте в `main` и отправьте тестовую заявку с сайта.
+
+В этом режиме заявка уходит на почту, а не в базу. Если позже понадобится база, история
+заявок и Appwrite, вернитесь к инструкции ниже и заполните `leadEndpoint`.
+
 ## Схема
 
 ```
